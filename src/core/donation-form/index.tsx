@@ -1,4 +1,5 @@
 import * as React from 'react'
+import classnames from 'classnames'
 import { DonateButton } from './donate-button'
 import { DonateInput } from './donate-input'
 import { ProgressBar } from './progress-bar'
@@ -65,6 +66,9 @@ export const DonationForm: React.FC = () => {
             already supported this project.
           </p>
           <form
+            className={classnames(styles.inputWrapper, {
+              [styles.error]: hasError,
+            })}
             onSubmit={handleSubmit}
           >
             {/*
@@ -82,3 +86,5 @@ export const DonationForm: React.FC = () => {
         </div>
       </div>
     </div>
+  )
+}

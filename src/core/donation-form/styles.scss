@@ -29,3 +29,23 @@
   margin-bottom: 32px;
 }
 
+.inputWrapper {
+  display: flex;
+}
+
+.error {
+  animation: 200ms 3 shakeX;
+}
+
+@keyframes shakeX {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
