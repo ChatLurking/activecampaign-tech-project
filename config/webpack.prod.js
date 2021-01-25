@@ -15,6 +15,11 @@ module.exports = merge(common, {
   },
   module: {
     rules: [
+      // https://github.com/pmndrs/react-spring/issues/1078#issuecomment-743698325
+      {
+        test: /react-spring/,
+        sideEffects: true,
+      },
       {
         test: /\.(scss|css)$/,
         use: [
