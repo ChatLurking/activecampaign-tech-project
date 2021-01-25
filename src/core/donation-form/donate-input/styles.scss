@@ -1,0 +1,35 @@
+@import 'scss/colors';
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 176px;
+}
+
+.donateInput {
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+
+  border: 2px solid $gray100;
+  padding: 12px 8px 12px 24px;
+  font-size: 16px;
+  border-radius: 4px 0 0 4px;
+  font-weight: bold;
+  border-right: none;
+
+  transition: border-color 200ms;
+}
+
+.dollarSign {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 1px;
+  left: 12px;
+  width: 12px;
+  display: flex;
+  align-items: center;
+  color: #bfc1c9;
+}
+
