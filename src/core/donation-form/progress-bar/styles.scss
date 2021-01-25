@@ -1,0 +1,27 @@
+@import 'scss/colors';
+
+.progress {
+  appearance: none;
+
+  width: 100%;
+  height: 8px;
+  border-radius: 4px 4px 0 0;
+}
+
+.progress::-webkit-progress-bar {
+  background: $green100;
+  border-radius: 4px 4px 0 0;
+}
+
+.progress::-webkit-progress-value {
+  background: $green200;
+  border-radius: 4px 4px 4px 0;
+}
+
+.progress::-moz-progress-bar {
+  background: $green200;
+}
+
+.isFilled::-webkit-progress-value {
+  border-radius: 4px 4px 0 0;
+}

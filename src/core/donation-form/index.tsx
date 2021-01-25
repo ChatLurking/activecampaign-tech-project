@@ -1,7 +1,9 @@
 import * as React from 'react'
 import { DonateButton } from './donate-button'
 import { DonateInput } from './donate-input'
+import { ProgressBar } from './progress-bar'
 import styles from './styles.scss'
+const TARGET_VALUE = 1000
 export const DonationForm: React.FC = () => {
   const [totalValue, setTotalValue] = React.useState(0)
   const [totalDonators, setTotalDonators] = React.useState(0)
@@ -22,6 +24,7 @@ export const DonationForm: React.FC = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.donateForm}>
+        <ProgressBar currValue={totalValue} targetValue={TARGET_VALUE} />
         <div className={styles.donateInnerContent}>
           <h2 className={styles.donateTimeRemainingHeading}>
             Only four days left to fund this project
