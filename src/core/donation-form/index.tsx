@@ -4,6 +4,8 @@ import { DonateButton } from './donate-button'
 import { DonateInput } from './donate-input'
 import { ProgressBar } from './progress-bar'
 import styles from './styles.scss'
+import { ChatBubble } from './chat-bubble'
+
 // used to see if error will happen on form submit
 const coinFlip = () => {
   if (Math.random() > 0.5) {
@@ -56,6 +58,7 @@ export const DonationForm: React.FC = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.donateForm}>
+        <ChatBubble {...chatBubbleProps} newDonation={newDonation} />
         <ProgressBar currValue={totalValue} targetValue={TARGET_VALUE} />
         <div className={styles.donateInnerContent}>
           <h2 className={styles.donateTimeRemainingHeading}>
