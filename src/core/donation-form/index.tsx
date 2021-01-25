@@ -30,8 +30,8 @@ export const DonationForm: React.FC = () => {
             Only four days left to fund this project
           </h2>
           <p className={styles.donateCtaText}>
-            Join the <strong>11</strong> other donors who have already supported
-            this project.
+            Join the <strong>{totalDonators}</strong> other donors who have
+            already supported this project.
           </p>
           <form
             onSubmit={handleSubmit}
