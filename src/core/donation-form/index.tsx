@@ -3,7 +3,16 @@ import { DonateButton } from './donate-button'
 import { DonateInput } from './donate-input'
 import { ProgressBar } from './progress-bar'
 import styles from './styles.scss'
+// used to see if error will happen on form submit
+const coinFlip = () => {
+  if (Math.random() > 0.5) {
+    return false
+  }
+  return true
+}
+
 const TARGET_VALUE = 1000
+
 export const DonationForm: React.FC = () => {
   const [totalValue, setTotalValue] = React.useState(0)
   const [totalDonators, setTotalDonators] = React.useState(0)
@@ -12,15 +21,37 @@ export const DonationForm: React.FC = () => {
     setDonateValue(value)
   }, [])
 
+  const [hasError, setHasError] = React.useState(false)
   const handleSubmit = React.useCallback(
     (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault()
+      const hasError = coinFlip()
+      setHasError(hasError)
+      if (!hasError) {
         setTotalValue(value => value + parseInt(donateValue, 10))
         setTotalDonators(donators => donators + 1)
       }
     },
     [donateValue]
   )
+
+  // little hack to reset the state without needing to click the button again
+  React.useEffect(() => {
+    let timeout: any
+    if (hasError) {
+      timeout = setTimeout(() => setHasError(false), 1000)
+    }
+    return () => timeout && clearTimeout(timeout)
+  }, [hasError])
+
+  const chatBubbleProps = React.useMemo(
+    () => ({
+      amountLeft: TARGET_VALUE - totalValue,
+      isFullyFunded: TARGET_VALUE <= totalValue,
+    }),
+    [totalValue]
+  )
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.donateForm}>
