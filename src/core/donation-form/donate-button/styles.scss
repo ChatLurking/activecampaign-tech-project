@@ -1,0 +1,18 @@
+@import 'scss/colors';
+
+.button {
+  padding: 12px 16px;
+  border-radius: 0 4px 4px 0;
+  background: $green200;
+  color: #fff;
+  border: 2px solid $green200;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 200ms, border-color 200ms;
+
+  &:hover {
+    background: darken($green200, 15%);
+    border-color: darken($green200, 15%);
+  }
+}
+

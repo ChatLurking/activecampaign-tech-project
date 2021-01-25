@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { DonateButton } from './donate-button'
 import { DonateInput } from './donate-input'
 import styles from './styles.scss'
 export const DonationForm: React.FC = () => {
@@ -22,6 +23,7 @@ export const DonationForm: React.FC = () => {
               value={donateValue}
               handleValueChange={handleValueChange}
             />
+            <DonateButton />
         </div>
       </div>
     </div>
