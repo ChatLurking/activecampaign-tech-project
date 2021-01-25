@@ -5,11 +5,13 @@ import styles from './styles.scss'
 interface DonateInputProps {
   value: string
   handleValueChange: (arg0: string) => void
+  hasError?: boolean
 }
 
 export const DonateInput: React.FC<DonateInputProps> = ({
   value,
   handleValueChange,
+  hasError,
 }) => {
   const onValueChange = React.useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,7 +30,7 @@ export const DonateInput: React.FC<DonateInputProps> = ({
     <div className={styles.wrapper}>
       <span className={styles.dollarSign}>$</span>
       <input
-        className={styles.donateInput}
+        className={classnames(styles.donateInput, { [styles.error]: hasError })}
         aria-label='Donate $'
         type='number'
         onChange={onValueChange}

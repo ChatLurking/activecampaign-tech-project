@@ -16,3 +16,13 @@
   }
 }
 
+.error {
+  background: $red;
+  color: #fff;
+  border: 2px solid $red;
+
+  &:hover {
+    background: $red;
+    border: 2px solid $red;
+  }
+}

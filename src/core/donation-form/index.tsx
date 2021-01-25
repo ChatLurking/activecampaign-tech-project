@@ -67,11 +67,17 @@ export const DonationForm: React.FC = () => {
           <form
             onSubmit={handleSubmit}
           >
+            {/*
+              aria invalid should not disappear, but didn't feel like keeping track of another 
+              variable for a state that is currently being artifically created 
+            */}
             <DonateInput
               value={donateValue}
               handleValueChange={handleValueChange}
+              hasError={hasError}
+              aria-invalid={hasError}
             />
-            <DonateButton />
+            <DonateButton hasError={hasError} />
           </form>
         </div>
       </div>
