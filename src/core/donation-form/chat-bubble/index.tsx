@@ -1,14 +1,17 @@
 import * as React from 'react'
+import classnames from 'classnames'
 import styles from './styles.scss'
 
 interface ChatBubbleProps {
   amountLeft: number
   isFullyFunded?: boolean
+  newDonation?: boolean
 }
 
 export const ChatBubble: React.FC<ChatBubbleProps> = ({
   amountLeft,
   isFullyFunded,
+  newDonation,
 }) => {
   const formatedNumber = React.useMemo(
     () => new Intl.NumberFormat('en').format(amountLeft),
@@ -16,7 +19,11 @@ export const ChatBubble: React.FC<ChatBubbleProps> = ({
   )
 
   return (
-    <div className={styles.wrapper}>
+    <div
+      className={classnames(styles.wrapper, {
+        [styles.newDonation]: newDonation,
+      })}
+    >
       <p className={styles.chatText}>
         {!isFullyFunded ? (
           <span>

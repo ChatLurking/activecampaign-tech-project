@@ -24,6 +24,15 @@ export const DonationForm: React.FC = () => {
     setDonateValue(value)
   }, [])
 
+  const [newDonation, setNewDonation] = React.useState(false)
+  React.useEffect(() => {
+    let timeout: any
+    if (newDonation) {
+      timeout = setTimeout(() => setNewDonation(false), 300)
+    }
+    return () => timeout && clearTimeout(timeout)
+  }, [newDonation])
+
   const [hasError, setHasError] = React.useState(false)
   const handleSubmit = React.useCallback(
     (event: React.FormEvent<HTMLFormElement>) => {
@@ -33,6 +42,7 @@ export const DonationForm: React.FC = () => {
       if (!hasError) {
         setTotalValue(value => value + parseInt(donateValue, 10))
         setTotalDonators(donators => donators + 1)
+        setNewDonation(true)
       }
     },
     [donateValue]
@@ -71,6 +81,7 @@ export const DonationForm: React.FC = () => {
           <form
             className={classnames(styles.inputWrapper, {
               [styles.error]: hasError,
+              [styles.newDonation]: newDonation,
             })}
             onSubmit={handleSubmit}
           >

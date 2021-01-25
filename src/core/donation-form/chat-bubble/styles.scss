@@ -29,3 +29,15 @@
   font-weight: bold;
 }
 
+.newDonation {
+  animation: 200ms 1 boing;
+}
+
+@keyframes boing {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
