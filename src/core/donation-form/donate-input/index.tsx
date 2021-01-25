@@ -31,12 +31,13 @@ export const DonateInput: React.FC<DonateInputProps> = ({
       <span className={styles.dollarSign}>$</span>
       <input
         className={classnames(styles.donateInput, { [styles.error]: hasError })}
-        aria-label='Donate $'
+        aria-label='Donate USD'
         type='number'
         onChange={onValueChange}
         value={value}
         min='5'
         step='1'
+        aria-invalid={hasError}
       />
     </div>
   )

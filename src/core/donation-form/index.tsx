@@ -67,6 +67,11 @@ export const DonationForm: React.FC = () => {
 
   return (
     <div className={styles.wrapper}>
+      <p className={styles.appNotes}>
+        On form subbmission the app has a 50% chance (flipping a coin) of
+        erroring or completing the donation successfully. You might need to
+        click a few times to see the different states.
+      </p>
       <div className={styles.donateForm}>
         <ChatBubble {...chatBubbleProps} newDonation={newDonation} />
         <ProgressBar currValue={totalValue} targetValue={TARGET_VALUE} />
@@ -86,14 +91,13 @@ export const DonationForm: React.FC = () => {
             onSubmit={handleSubmit}
           >
             {/*
-              aria invalid should not disappear, but didn't feel like keeping track of another 
-              variable for a state that is currently being artifically created 
+              aria invalid should not disappear so fast, and I should also focus the input on error, but didn't feel like keeping track of another 
+              variable for a state that is currently being artifically created and didn't feel like implementing the focus logic right now.
             */}
             <DonateInput
               value={donateValue}
               handleValueChange={handleValueChange}
               hasError={hasError}
-              aria-invalid={hasError}
             />
             <DonateButton hasError={hasError} />
           </form>

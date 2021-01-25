@@ -16,6 +16,7 @@ export const DonateButton: React.FC<DonateButtonProps> = ({
     <button
       className={classnames(styles.button, { [styles.error]: hasError })}
       onClick={onClick}
+      disabled={hasError}
     >
       Give now
     </button>

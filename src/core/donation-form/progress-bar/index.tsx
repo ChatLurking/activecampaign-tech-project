@@ -23,8 +23,13 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
     }
   }, [currValue, targetValue])
 
+  // used a library just to make interoplation of the value ez.
+  // I could have used it in the chat-bubble component, but didn't feel like doing that at this time.
   const { value } = useSpring({ from: { value: 0 }, to: { value: percentage } })
 
+  // decided to use the html progress because accessibility is already there.
+  // the downside is that in firefox you can't style it as well as chromium browswers.
+  // I would probably make a FF specific fallback component for this.
   return (
     <animated.progress
       className={classnames(`${styles.progress}`, {

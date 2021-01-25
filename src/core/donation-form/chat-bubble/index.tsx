@@ -14,7 +14,7 @@ export const ChatBubble: React.FC<ChatBubbleProps> = ({
   newDonation,
 }) => {
   const formatedNumber = React.useMemo(
-    () => new Intl.NumberFormat('en').format(amountLeft),
+    () => new Intl.NumberFormat(navigator.language || 'en').format(amountLeft),
     [amountLeft]
   )
 
